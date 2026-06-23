@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roast Raja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>👑 ROAST RAJA</h1>
+
+<p>Turn Your Selfie Into A Meme 🔥</p>
+
+<h2>📸 Pick Your Selfie</h2>
+
+<input type="file" id="fileInput" hidden>
+
+<div id="uploadBox" onclick="document.getElementById('fileInput').click()">
+
+<div class="uploadIcon">📸</div>
+
+<h3>TAP TO PICK</h3>
+
+<p>YOUR SELFIE</p>
+
+</div>
+
+<br><br>
+
+<img id="preview">
+
+<canvas id="canvas" width="400" height="500" style="display:none;"></canvas>
+
+<br><br>
+
+<button onclick="downloadMeme()">
+📥 Download Meme
+</button>
+
+<br><br>
+
+<button onclick="shareMeme()">
+📲 SHARE MEME
+</button>
+
+<h3>Choose Your Roast Style</h3>
+
+<div id="modes">
+
+<button class="modeBtn" onclick="setMode('soft')">
+😇 SOFT
+</button>
+
+<button class="modeBtn" onclick="setMode('funny')">
+😂 FUNNY
+</button>
+
+<button class="modeBtn" onclick="setMode('savage')">
+😈 SAVAGE
+</button>
+
+</div>
+
+<br>
+<br><br>
+
+<button onclick="roastMe()">🔥 COOK MY ROAST</button>
+<br><br>
+
+<button onclick="aiRoastMe()">
+🤖 AI ROAST ME
+</button>
+
+<h2>😂 Your Meme</h2>
+
+<p id="result">Upload your selfie to start!</p>
+<div id="score"></div>
+<script src="script.js"></script>
+</body>
+</html>
