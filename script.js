@@ -558,29 +558,38 @@ async function aiRoastMe() {
     try {
 
       const response = await fetch("https://roastraja-ai.onrender.com/roast", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        imageBase64: preview.src.split(",")[1]
-    })
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    imageBase64: preview.src.split(",")[1]
+  })
 });
+
         const data = await response.json();
 
         console.log(data);
 
-        if (data.roast) {
-            result.innerHTML = data.roast;
-        } else {
-            result.innerHTML = "❌ " + (data.error || "AI roast failed");
-        }
-
+       if (data.roast) {
+    result.innerHTML = data.roast;
+} else {
+    result.innerHTML = "⚠️ AI busy. Using local roast...";
+    
+    setTimeout(() => {
+        roastMe(); // existing local roast function
+    }, 1000);
+}
     } catch (error) {
 
-        console.error(error);
+    console.error(error);
 
-        result.innerHTML = "❌ Cannot connect to AI server";
+    result.innerHTML =
+        "⚠️ AI unavailable. Using local roast...";
 
-    }
+    setTimeout(() => {
+        roastMe();
+    }, 1000);
+
+}
 }
